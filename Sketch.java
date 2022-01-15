@@ -5,20 +5,25 @@ public class Sketch extends PApplet {
 	float r;
   float g;
   float b;
+  float w;
+  float a;
+  
   /**
    * Called once at the beginning of execution, put your size all in this method
    */
   public void settings() {
 	// put your size call here
     size(400, 400);
+    
   }
-
+  
   /** 
    * Called once at the beginning of execution.  Add initial set up
    * values here i.e background, stroke, fill etc.
    */
   public void setup() {
-    background(255,0,0);
+    background(0,0,255);
+    
   }
 
   /**
@@ -27,7 +32,6 @@ public class Sketch extends PApplet {
   
   public void draw() {
     
-	
   // 10x10 Grid Columns
   for (int lineY = (width/2)/10; lineY <= width/2; lineY += (width/2)/10) {
     stroke(0);
@@ -41,6 +45,7 @@ public class Sketch extends PApplet {
   // 5x5 Circles
   for (int circleY = height/2/10; circleY <= height/2; circleY += height/2/5) {
     for (int circleX = width/2+25; circleX <= width; circleX += width/2/5) {
+      fill(255,255,255);
       ellipse(circleX, circleY, width/80*5, height/80*5);
     }
   }
@@ -53,21 +58,39 @@ public class Sketch extends PApplet {
     line(i, height/2, i, height);
   }
   // Petals
-  translate(width/2, height/2);
-  for (int j = 0; j <= 7; j++) {
-    System.out.println(PI/(float)3.0);
-    rotate(PI/(float)3.0);
-    //ellipse(width/40*25+(j*100),height/4*3,width/4,height/16);
-    //ellipse(width/40*25,height/4*3,width/4,height/16);
-    ellipse(250,250,50,70);
+  
+  
+  
+    
+    //ellipse(100+20*cos(b*(PI/4)), 100-20*flowerdiameter*sin(b*PI/4),40,10);
+    
+    translate (width/4*3,height/4*3);
+    for (int b = 0; b <= 3; b++) {
+    fill(0,255,0);
+    ellipse(0, 0,80,10);
+    fill(255,0,0);
+    ellipse(0, 0, width/80*5, height/80*5);
+    rotate (PI/4);
+    
+    
+    
     
   }
   
-  //for (int a = 0; a <= 1; a++) {
-   // ellipse(width/4*3,height/40*25+(a*100),width/16,height/4);
-  //}
-  ellipse(width/4*3,height/4*3,25,25);
-
+  
+  /*ellipse(width/4*3,height/4*3,25,25);
+  for(int j = 0; j<=3; j++){  
+    translate(260-2*j, 265);
+    rotate(PI/(float)-3.5);
+    ellipse(0,0,width/16,height/4);
+  }
+  for(int j = 0; j<=5; j++){  
+    w+=5;
+    translate(100+w, 100+w);
+    rotate(PI/(float)-3.0*w/20);
+    ellipse(0,0,width/16,height/4);
+  }
+    w=0;*/
   }
   
   // define other methods down here.
